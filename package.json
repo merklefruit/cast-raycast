@@ -30,6 +30,13 @@
       "subtitle": "Get the keccak hash of some data",
       "description": "Get the keccak hash of some data",
       "mode": "view"
+    },
+    {
+      "name": "cast-compute-address",
+      "title": "Cast Compute Address",
+      "subtitle": "Compute the contract address from a nonce and deployer address",
+      "description": "Compute the contract address from a nonce and deployer address",
+      "mode": "view"
     }
   ],
   "dependencies": {
