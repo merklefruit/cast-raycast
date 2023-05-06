@@ -11,14 +11,23 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
-      "title": "Run Script",
-      "description": "Template for running a script without any view",
-      "mode": "no-view"
+      "name": "cast-sig",
+      "title": "Cast Sig",
+      "subtitle": "Get the signature for a function",
+      "description": "Get the selector for a function",
+      "mode": "view"
+    },
+    {
+      "name": "cast-sig-event",
+      "title": "Cast Sig Event",
+      "subtitle": "Get the signature for an event",
+      "description": "Get the selector for an event",
+      "mode": "view"
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.50.3"
+    "@raycast/api": "^1.50.3",
+    "@raycast/utils": "^1.5.2"
   },
   "devDependencies": {
     "@raycast/eslint-config": "1.0.5",
