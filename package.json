@@ -23,6 +23,13 @@
       "subtitle": "Get the signature for an event",
       "description": "Get the selector for an event",
       "mode": "view"
+    },
+    {
+      "name": "cast-keccak",
+      "title": "Cast Keccak",
+      "subtitle": "Get the keccak hash of some data",
+      "description": "Get the keccak hash of some data",
+      "mode": "view"
     }
   ],
   "dependencies": {
