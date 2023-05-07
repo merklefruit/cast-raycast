@@ -65,6 +65,41 @@
       "subtitle": "Concatenate hex strings",
       "description": "Concatenate hex strings",
       "mode": "view"
+    },
+    {
+      "name": "cast-wallet-new",
+      "title": "Cast Wallet New",
+      "subtitle": "Generate a new random keypair",
+      "description": "Generate a new random keypair",
+      "mode": "no-view"
+    },
+    {
+      "name": "cast-wallet-vanity",
+      "title": "Cast Wallet Vanity",
+      "subtitle": "Generate a vanity address",
+      "description": "Generate a vanity address",
+      "mode": "view"
+    },
+    {
+      "name": "cast-wallet-address",
+      "title": "Cast Wallet Address",
+      "subtitle": "Convert a private key to an address",
+      "description": "Convert a private key to an address",
+      "mode": "view"
+    },
+    {
+      "name": "cast-wallet-sign",
+      "title": "Cast Wallet Sign",
+      "subtitle": "Sign a message with a private key",
+      "description": "Sign a message with a private key",
+      "mode": "view"
+    },
+    {
+      "name": "cast-wallet-verify",
+      "title": "Cast Wallet Verify",
+      "subtitle": "Verify the signature of a message",
+      "description": "Verify the signature of a message",
+      "mode": "view"
     }
   ],
   "dependencies": {
