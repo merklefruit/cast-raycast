@@ -18,15 +18,15 @@ interface Opts {
   successMessage?: string;
 }
 
+const FOUNDRY_BIN = homedir() + "/.foundry/bin/cast";
+const execp = promisify(exec);
+
 function defaultOutputParser(stdout: string) {
   return stdout.replace("\n", "").trim();
 }
 
 function defaultErrorParser(stderr: string, fullCommand?: string) {
-  const initial = stderr
-    .split("Command failed: /Users/nico/.foundry/bin/cast")[1]
-    ?.replace("[31m", "")
-    .replace("[0m", "");
+  const initial = stderr.split(`Command failed: ${FOUNDRY_BIN}`)[1]?.replace("[31m", "").replace("[0m", "");
 
   if (!initial) {
     const secondary = stderr.replace("Error: \n", "")?.replace("[31m", "")?.replace("[0m", "");
@@ -119,9 +119,6 @@ export interface ExecResult {
   stdout: string;
   stderr: string;
 }
-
-const FOUNDRY_BIN = homedir() + "/.foundry/bin/cast";
-const execp = promisify(exec);
 
 export async function execCast(cmd: string, cancel?: AbortController): Promise<ExecResult> {
   try {

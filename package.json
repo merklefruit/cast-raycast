@@ -58,6 +58,13 @@
       "subtitle": "Get the storage slot for an entry in a mapping",
       "description": "Get the storage slot for an entry in a mapping",
       "mode": "view"
+    },
+    {
+      "name": "cast-concat-hex",
+      "title": "Cast Concat Hex",
+      "subtitle": "Concatenate hex strings",
+      "description": "Concatenate hex strings",
+      "mode": "view"
     }
   ],
   "dependencies": {
