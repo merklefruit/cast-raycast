@@ -23,15 +23,13 @@ function defaultOutputParser(stdout: string) {
 }
 
 function defaultErrorParser(stderr: string, fullCommand?: string) {
-  console.log(stderr, fullCommand);
-
   const initial = stderr
     .split("Command failed: /Users/nico/.foundry/bin/cast")[1]
     ?.replace("[31m", "")
     .replace("[0m", "");
 
   if (!initial) {
-    const secondary = stderr.replace("Error: \n", "").replace("[31m", "").replace("[0m", "");
+    const secondary = stderr.replace("Error: \n", "")?.replace("[31m", "")?.replace("[0m", "");
     if (secondary) return secondary;
     return "An error occurred";
   }
@@ -52,7 +50,12 @@ export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, Cast
   const errorParser = opts?.errorParser ?? defaultErrorParser;
 
   async function execute(withArgs: Args) {
-    checkValidArgs(withArgs);
+    try {
+      checkValidArgs(withArgs);
+    } catch (err: any) {
+      showToast({ style: Toast.Style.Failure, title: err.message });
+      return;
+    }
 
     const fullCommand = `${cmd} ${parseArgs(withArgs)}`;
 
@@ -60,11 +63,7 @@ export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, Cast
       setIsLoading(true);
 
       const { stdout, stderr } = await execCast(fullCommand);
-
-      if (stderr) {
-        console.log(stderr);
-        throw new Error(stderr);
-      }
+      if (stderr) throw new Error(stderr);
 
       const output = outputParser(stdout);
 
@@ -80,7 +79,6 @@ export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, Cast
 
       const error = errorParser(err.stderr, fullCommand);
       showToast({ style: Toast.Style.Failure, title: error });
-      throw new Error(error);
     }
   }
 

@@ -1,36 +1,24 @@
-import { Clipboard, ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
-import { useState } from "react";
+import { ActionPanel, Action, Form } from "@raycast/api";
+import { useCast } from "./useCast";
 
-interface FormValues {
-  nonce: string;
-  address: string;
-}
+const Arguments = {
+  address: { required: true, name: "Deployer Address" },
+  nonce: { required: false, name: "Nonce" },
+} as const;
+
+const successMessage = "Copied contract address to clipboard";
+const outputParser = (stdout: string) => stdout.replace("Computed Address: ", "");
 
 export default function Command() {
-  const [result, setResult] = useState("");
-
-  async function handleSubmit(v: FormValues) {
-    if (!v.address) {
-      showToast({ style: Toast.Style.Failure, title: "Deployer Address is required" });
-      return;
-    }
-
-    try {
-      const { stdout } = await execCast(`compute-address ${v.address} ${v.nonce !== "" ? `--nonce ${v.nonce}` : ""}`);
-      Clipboard.copy(stdout.replace("Computed Address: ", "").replace("\n", ""));
-      showToast({ style: Toast.Style.Success, title: "Copied contract address to clipboard" });
-      setResult(stdout);
-    } catch (err: any) {
-      showToast({ style: Toast.Style.Failure, title: err.stderr });
-    }
-  }
+  const { isLoading, result, execute } = useCast("compute-address", Arguments, { successMessage, outputParser });
 
   return (
     <Form
+      isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm onSubmit={handleSubmit} />
-          <Action.CopyToClipboard title="Copy address to clipboard" content={result} />
+          <Action.SubmitForm onSubmit={execute} />
+          <Action.CopyToClipboard title="Copy contract address to clipboard" content={result} />
         </ActionPanel>
       }
     >

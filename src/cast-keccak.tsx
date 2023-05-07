@@ -1,34 +1,21 @@
-import { ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
-import { useState } from "react";
+import { ActionPanel, Action, Form } from "@raycast/api";
+import { useCast } from "./useCast";
 
-interface FormValues {
-  value: string;
-}
+const Arguments = {
+  value: { required: true, name: "Value" },
+} as const;
+
+const successMessage = "Copied keccak hash to clipboard";
 
 export default function Command() {
-  const [result, setResult] = useState("");
-
-  async function handleSubmit(v: FormValues) {
-    if (!v.value) {
-      showToast({ style: Toast.Style.Failure, title: "Please enter a value to hash" });
-      return;
-    }
-
-    try {
-      const { stdout } = await execCast(`keccak ${v.value}`);
-      Clipboard.copy(stdout.replace("\n", ""));
-      showToast({ style: Toast.Style.Success, title: "Copied keccak hash to clipboard" });
-      setResult(stdout);
-    } catch (err: any) {
-      showToast({ style: Toast.Style.Failure, title: err.stderr });
-    }
-  }
+  const { isLoading, result, execute } = useCast("keccak", Arguments, { successMessage });
 
   return (
     <Form
+      isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm onSubmit={handleSubmit} />
+          <Action.SubmitForm onSubmit={execute} />
           <Action.CopyToClipboard title="Copy hash to clipboard" content={result} />
         </ActionPanel>
       }

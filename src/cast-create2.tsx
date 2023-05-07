@@ -1,4 +1,4 @@
-import { ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
+import { ActionPanel, Action, Form } from "@raycast/api";
 
 import { useCast } from "./useCast";
 
@@ -25,21 +25,12 @@ const Arguments = {
 export default function Command() {
   const { isLoading, result, execute } = useCast("create2", Arguments);
 
-  async function handleSubmit(v: FormValues) {
-    try {
-      await execute(v);
-      showToast({ style: Toast.Style.Success, title: "Copied contract address to clipboard" });
-    } catch (err: any) {
-      showToast({ style: Toast.Style.Failure, title: err.message });
-    }
-  }
-
   return (
     <Form
       isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm onSubmit={handleSubmit} />
+          <Action.SubmitForm onSubmit={execute} />
           <Action.CopyToClipboard title="Copy CREATE2 address to clipboard" content={result} />
         </ActionPanel>
       }

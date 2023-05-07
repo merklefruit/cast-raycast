@@ -1,34 +1,21 @@
-import { ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
-import { useState } from "react";
+import { ActionPanel, Action, Form } from "@raycast/api";
+import { useCast } from "./useCast";
 
-interface FormValues {
-  signature: string;
-}
+const Arguments = {
+  signature: { required: true, name: "Event Signature" },
+} as const;
+
+const successMessage = "Copied event selector to clipboard";
 
 export default function Command() {
-  const [result, setResult] = useState("");
-
-  async function handleSubmit(v: FormValues) {
-    if (!v.signature) {
-      showToast({ style: Toast.Style.Failure, title: "Please enter an event signature" });
-      return;
-    }
-
-    try {
-      const { stdout } = await execCast(`sig-event '${v.signature}'`);
-      Clipboard.copy(stdout.replace("\n", ""));
-      showToast({ style: Toast.Style.Success, title: "Copied event selector to clipboard" });
-      setResult(stdout);
-    } catch (err: any) {
-      showToast({ style: Toast.Style.Failure, title: err.stderr });
-    }
-  }
+  const { isLoading, result, execute } = useCast("sig-event", Arguments, { successMessage });
 
   return (
     <Form
+      isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm onSubmit={handleSubmit} />
+          <Action.SubmitForm onSubmit={(v) => execute({ signature: `"${v.signature}"` })} />
           <Action.CopyToClipboard title="Copy selector to clipboard" content={result} />
         </ActionPanel>
       }
@@ -36,8 +23,8 @@ export default function Command() {
       <Form.TextField
         id="signature"
         title="Event signature"
-        info="The event signature for which you want to find the selector"
         placeholder="Transfer(address indexed from, address indexed to, uint256 amount)"
+        info="The event signature for which you want to find the selector"
       />
     </Form>
   );
