@@ -12,8 +12,10 @@ const Arguments = {
   initCodeHash: { required: false, name: "Init code hash", flag: "--init-code-hash" },
 } as const;
 
+const successMessage = "Copied CREATE2 address to clipboard";
+
 export default function Command() {
-  const { isLoading, result, execute } = useCast("create2", Arguments);
+  const { isLoading, result, execute } = useCast("create2", Arguments, { successMessage });
 
   return (
     <Form
@@ -21,6 +23,7 @@ export default function Command() {
       actions={
         <ActionPanel>
           <Action.SubmitForm onSubmit={execute} />
+          <Action.OpenInBrowser title="View Docs" url="https://book.getfoundry.sh/reference/cast/cast-create2" />
           <Action.CopyToClipboard title="Copy CREATE2 address to clipboard" content={result} />
         </ActionPanel>
       }

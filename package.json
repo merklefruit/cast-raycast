@@ -51,6 +51,13 @@
       "subtitle": "Generate a Solidity interface from a contract ABI",
       "description": "Generate a Solidity interface from a contract ABI",
       "mode": "view"
+    },
+    {
+      "name": "cast-index",
+      "title": "Cast Index",
+      "subtitle": "Get the storage slot for an entry in a mapping",
+      "description": "Get the storage slot for an entry in a mapping",
+      "mode": "view"
     }
   ],
   "dependencies": {

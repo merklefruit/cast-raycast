@@ -16,6 +16,7 @@ export default function Command() {
       actions={
         <ActionPanel>
           <Action.SubmitForm onSubmit={execute} />
+          <Action.OpenInBrowser title="View Docs" url="https://book.getfoundry.sh/reference/cast/cast-keccak" />
           <Action.CopyToClipboard title="Copy hash to clipboard" content={result} />
         </ActionPanel>
       }

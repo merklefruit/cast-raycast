@@ -16,6 +16,7 @@ export default function Command() {
       actions={
         <ActionPanel>
           <Action.SubmitForm onSubmit={(v) => execute({ signature: `"${v.signature}"` })} />
+          <Action.OpenInBrowser title="View Docs" url="https://book.getfoundry.sh/reference/cast/cast-sig-event" />
           <Action.CopyToClipboard title="Copy selector to clipboard" content={result} />
         </ActionPanel>
       }

@@ -18,6 +18,10 @@ export default function Command() {
       actions={
         <ActionPanel>
           <Action.SubmitForm onSubmit={execute} />
+          <Action.OpenInBrowser
+            title="View Docs"
+            url="https://book.getfoundry.sh/reference/cast/cast-compute-address"
+          />
           <Action.CopyToClipboard title="Copy contract address to clipboard" content={result} />
         </ActionPanel>
       }

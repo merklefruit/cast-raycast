@@ -26,7 +26,7 @@ To use this extension, you need to have [Raycast](https://www.raycast.com/) and 
 - [x] keccak
 - [x] compute-address
 - [x] create2
-- [ ] interface
+- [x] interface
 - [ ] index
 - [ ] --concat-hex
 - [ ] --max-int

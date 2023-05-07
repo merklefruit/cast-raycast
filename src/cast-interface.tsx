@@ -7,8 +7,10 @@ const Arguments = {
   pragma: { required: false, name: "Pragma", flag: "--pragma" },
 } as const;
 
+const successMessage = "Copied interface to clipboard";
+
 export default function Command() {
-  const { isLoading, result, execute } = useCast("interface", Arguments);
+  const { isLoading, result, execute } = useCast("interface", Arguments, { successMessage });
 
   return (
     <Form
@@ -16,6 +18,7 @@ export default function Command() {
       actions={
         <ActionPanel>
           <Action.SubmitForm onSubmit={execute} />
+          <Action.OpenInBrowser title="View Docs" url="https://book.getfoundry.sh/reference/cast/cast-interface" />
           <Action.CopyToClipboard title="Copy interface to clipboard" content={result} />
         </ActionPanel>
       }
