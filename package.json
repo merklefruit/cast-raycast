@@ -1,9 +1,9 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "forge-cast-cli",
-  "title": "Forge Cast CLI",
+  "name": "foundry-cast-cli",
+  "title": "Foundry Cast CLI",
   "description": "Use the Cast CLI directly inside Raycast",
-  "icon": "command-icon.png",
+  "icon": "foundry.png",
   "author": "merklefruit",
   "categories": [
     "Developer Tools"
