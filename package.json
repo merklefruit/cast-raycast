@@ -114,6 +114,34 @@
       "subtitle": "Get the value of a contract's storage slot",
       "description": "Get the value of a contract's storage slot",
       "mode": "view"
+    },
+    {
+      "name": "cast-nonce",
+      "title": "Cast Nonce",
+      "subtitle": "Get the nonce for an account",
+      "description": "Get the nonce for an account",
+      "mode": "view"
+    },
+    {
+      "name": "cast-code",
+      "title": "Cast Code",
+      "subtitle": "Get the bytecode for an account",
+      "description": "Get the bytecode for an account",
+      "mode": "view"
+    },
+    {
+      "name": "cast-lookup-address",
+      "title": "Cast ENS Reverse Lookup Address",
+      "subtitle": "Convert an address to its primary ENS domain",
+      "description": "Convert an address to its primary ENS domain",
+      "mode": "view"
+    },
+    {
+      "name": "cast-resolve-name",
+      "title": "Cast ENS Resolve Name",
+      "subtitle": "Convert an ENS domain to an address",
+      "description": "Convert an ENS domain to an address",
+      "mode": "view"
     }
   ],
   "dependencies": {
