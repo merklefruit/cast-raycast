@@ -2,16 +2,6 @@ import { ActionPanel, Action, Form } from "@raycast/api";
 
 import { useCast } from "./useCast";
 
-interface FormValues {
-  startsWith: string;
-  endsWith: string;
-  matching: string;
-  caseSensitive: boolean;
-  deployerAddress: string;
-  initCode: string;
-  initCodeHash: string;
-}
-
 const Arguments = {
   startsWith: { required: true, name: "Starts with", flag: "--starts-with" },
   endsWith: { required: false, name: "Ends with", flag: "--ends-with" },

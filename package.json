@@ -44,6 +44,13 @@
       "subtitle": "Generate a deterministic contract address using CREATE2",
       "description": "Generate a deterministic contract address using CREATE2",
       "mode": "view"
+    },
+    {
+      "name": "cast-interface",
+      "title": "Cast Interface",
+      "subtitle": "Generate a Solidity interface from a contract ABI",
+      "description": "Generate a Solidity interface from a contract ABI",
+      "mode": "view"
     }
   ],
   "dependencies": {
