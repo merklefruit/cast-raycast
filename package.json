@@ -37,6 +37,13 @@
       "subtitle": "Compute the contract address from a nonce and deployer address",
       "description": "Compute the contract address from a nonce and deployer address",
       "mode": "view"
+    },
+    {
+      "name": "cast-create2",
+      "title": "Cast Create2",
+      "subtitle": "Generate a deterministic contract address using CREATE2",
+      "description": "Generate a deterministic contract address using CREATE2",
+      "mode": "view"
     }
   ],
   "dependencies": {

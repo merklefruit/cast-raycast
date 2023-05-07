@@ -1,7 +1,5 @@
-import { Clipboard, ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
-
+import { ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
 import { useState } from "react";
-import { execCast } from "./utils";
 
 interface FormValues {
   value: string;

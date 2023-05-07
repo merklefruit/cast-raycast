@@ -1,7 +1,5 @@
 import { Clipboard, ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
-
 import { useState } from "react";
-import { execCast } from "./utils";
 
 interface FormValues {
   nonce: string;
@@ -13,7 +11,7 @@ export default function Command() {
 
   async function handleSubmit(v: FormValues) {
     if (!v.address) {
-      showToast({ style: Toast.Style.Failure, title: "Address is required" });
+      showToast({ style: Toast.Style.Failure, title: "Deployer Address is required" });
       return;
     }
 
@@ -37,16 +35,17 @@ export default function Command() {
       }
     >
       <Form.TextField
-        id="nonce"
-        title="Nonce"
-        placeholder="0"
-        info="The nonce of the deployer address. Defaults to the latest nonce, fetched from the RPC."
-      />
-      <Form.TextField
         id="address"
         title="Deployer address"
         placeholder="0x388C818CA8B9251b393131C08a736A67ccB19297"
         info="The address of the EOA deploying the contract"
+      />
+      <Form.Separator />
+      <Form.TextField
+        id="nonce"
+        title="Nonce"
+        placeholder="0"
+        info="The nonce of the deployer address. Defaults to the latest nonce, fetched from the RPC."
       />
     </Form>
   );
