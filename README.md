@@ -19,17 +19,7 @@ To use this extension, you need to have [Raycast](https://www.raycast.com/) and 
 
 ## Features
 
-### Utility commands
-
-- [x] sig
-- [x] sig-event
-- [x] keccak
-- [x] compute-address
-- [x] create2
-- [x] interface
-- [ ] index
-- [ ] --concat-hex
-- [ ] --max-int
-- [ ] --min-int
-- [ ] --max-uint
-- [ ] --to-checksum-address
+- All `utility` commands
+- All `wallet` commands
+- All `ENS` commands
+- All `account` commands
