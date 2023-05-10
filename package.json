@@ -146,8 +146,8 @@
     {
       "name": "cast-abi-encode",
       "title": "Cast ABI Encode",
-      "subtitle": "ABI encode the given function arguments, excluding the selector.",
-      "description": "ABI encode the given function arguments, excluding the selector.",
+      "subtitle": "ABI encode the given function arguments, excluding the selector",
+      "description": "ABI encode the given function arguments, excluding the selector",
       "mode": "view"
     },
     {
@@ -169,6 +169,27 @@
       "title": "Cast 4byte Event",
       "subtitle": "Get the event signature for a given topic 0",
       "description": "Get the event signature for a given topic 0",
+      "mode": "view"
+    },
+    {
+      "name": "cast-calldata",
+      "title": "Cast ABI-Encode Calldata",
+      "subtitle": "ABI-encode a function with arguments",
+      "description": "ABI-encode a function with arguments",
+      "mode": "view"
+    },
+    {
+      "name": "cast-abi-decode",
+      "title": "Cast Decode Output Data",
+      "subtitle": "Decode ABI-encoded output data",
+      "description": "Decode ABI-encoded output data",
+      "mode": "view"
+    },
+    {
+      "name": "cast-calldata-decode",
+      "title": "Cast Decode Calldata",
+      "subtitle": "Decode ABI-encoded input data (calldata)",
+      "description": "Decode ABI-encoded input data (calldata)",
       "mode": "view"
     }
   ],
