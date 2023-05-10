@@ -142,6 +142,34 @@
       "subtitle": "Convert an ENS domain to an address",
       "description": "Convert an ENS domain to an address",
       "mode": "view"
+    },
+    {
+      "name": "cast-abi-encode",
+      "title": "Cast ABI Encode",
+      "subtitle": "ABI encode the given function arguments, excluding the selector.",
+      "description": "ABI encode the given function arguments, excluding the selector.",
+      "mode": "view"
+    },
+    {
+      "name": "cast-4byte",
+      "title": "Cast 4byte",
+      "subtitle": "Get the function signatures for the given selector",
+      "description": "Get the function signatures for the given selector",
+      "mode": "view"
+    },
+    {
+      "name": "cast-4byte-decode",
+      "title": "Cast 4byte Decode",
+      "subtitle": "Decode ABI-encoded calldata",
+      "description": "Decode ABI-encoded calldata",
+      "mode": "view"
+    },
+    {
+      "name": "cast-4byte-event",
+      "title": "Cast 4byte Event",
+      "subtitle": "Get the event signature for a given topic 0",
+      "description": "Get the event signature for a given topic 0",
+      "mode": "view"
     }
   ],
   "dependencies": {

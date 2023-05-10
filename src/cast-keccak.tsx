@@ -15,7 +15,7 @@ export default function Command() {
       isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm onSubmit={execute} />
+          <Action.SubmitForm onSubmit={(v) => execute({ value: `"${v.value}"` })} />
           <Action.OpenInBrowser title="View Docs" url="https://book.getfoundry.sh/reference/cast/cast-keccak" />
           <Action.CopyToClipboard title="Copy hash to clipboard" content={result} />
         </ActionPanel>
