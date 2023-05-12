@@ -1,44 +1,8 @@
-import { homedir } from "os";
-import { promisify } from "util";
-import { useState } from "react";
-import { exec } from "child_process";
 import { Clipboard, Toast, showToast } from "@raycast/api";
+import { useState } from "react";
 
-interface CastArg {
-  required: boolean;
-  name: string;
-  flag?: string;
-  type?: "string" | "boolean";
-}
-
-interface Opts {
-  saveToClipboard?: boolean;
-  outputParser?: (stdout: string, ...extra: any) => string;
-  errorParser?: (stderr: string, ...extra: any) => string;
-  successMessage?: string;
-}
-
-const FOUNDRY_BIN = homedir() + "/.foundry/bin/cast";
-const execp = promisify(exec);
-
-function defaultOutputParser(stdout: string) {
-  return stdout.replace("\n", "").trim();
-}
-
-function defaultErrorParser(stderr: string, fullCommand?: string) {
-  const initial = stderr.split(`Command failed: ${FOUNDRY_BIN}`)[1]?.replace("[31m", "").replace("[0m", "");
-
-  if (!initial) {
-    const secondary = stderr.replace("Error: \n", "")?.replace("[31m", "")?.replace("[0m", "");
-    if (secondary) return secondary;
-    return "An error occurred";
-  }
-
-  const clean = fullCommand ? initial.replace(fullCommand, "") : initial;
-  if (clean) return clean;
-
-  return initial;
-}
+import { CastArg, Opts } from "./types";
+import { defaultOutputParser, defaultErrorParser, execCast } from "./utils";
 
 export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, CastArg>>, opts?: Opts) {
   const [isLoading, setIsLoading] = useState(false);
@@ -58,11 +22,12 @@ export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, Cast
     }
 
     const fullCommand = `${cmd} ${parseArgs(withArgs)}`;
+    const network = parseNetwork(withArgs);
 
     try {
       setIsLoading(true);
 
-      const { stdout, stderr } = await execCast(fullCommand);
+      const { stdout, stderr } = await execCast(fullCommand, network);
       if (stderr) throw new Error(stderr);
 
       const output = outputParser(stdout);
@@ -87,13 +52,20 @@ export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, Cast
 
     const parsedArgs = allArgs
       .filter(([k, _]) => withArgs[k])
-      .map(([_, arg]) => {
+      .filter(([_, arg]) => arg.name !== "network")
+      .map(([j, arg]) => {
         if (arg.type === "boolean") return arg.flag;
-        return `${arg.flag ? arg.flag : ""} ${withArgs[_]}`;
+        return `${arg.flag ? arg.flag : ""} ${withArgs[j]}`;
       })
       .join(" ");
 
     return parsedArgs;
+  }
+
+  function parseNetwork(withArgs: Args) {
+    const networkArg = (withArgs as any).network;
+    if (!networkArg) return 1;
+    return Number(networkArg);
   }
 
   function checkValidArgs(withArgs: Args) {
@@ -113,21 +85,4 @@ export function useCast<Args>(cmd: string, args: Partial<Record<keyof Args, Cast
   }
 
   return { execute, isLoading, result };
-}
-
-export interface ExecResult {
-  stdout: string;
-  stderr: string;
-}
-
-export async function execCast(cmd: string, cancel?: AbortController): Promise<ExecResult> {
-  try {
-    return await execp(`${FOUNDRY_BIN} ${cmd}`, { signal: cancel?.signal, maxBuffer: 10 * 1024 * 1024 });
-  } catch (err: any) {
-    if (err?.code === 127) {
-      throw new Error(`Cast executable not found at: ${FOUNDRY_BIN}`);
-    }
-
-    throw err;
-  }
 }

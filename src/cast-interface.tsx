@@ -1,6 +1,6 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 
-import { useCast } from "./useCast";
+import { useCast } from "./lib/useCast";
 
 const Arguments = {
   address: { required: true, name: "Contract Address" },

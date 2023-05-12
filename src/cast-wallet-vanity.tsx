@@ -1,5 +1,5 @@
 import { ActionPanel, Action, Form, confirmAlert } from "@raycast/api";
-import { useCast } from "./useCast";
+import { useCast } from "./lib/useCast";
 
 const Arguments = {
   startsWith: { required: false, name: "Starts With", flag: "--starts-with" },

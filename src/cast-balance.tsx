@@ -1,5 +1,6 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
-import { useCast } from "./useCast";
+import { useCast } from "./lib/useCast";
+import NetworkSelector from "./lib/NetworkSelector";
 
 const Arguments = {
   address: { required: true, name: "Address" },
@@ -8,7 +9,7 @@ const Arguments = {
 const successMessage = "Copied wallet balance to clipboard";
 
 export default function Command() {
-  const { isLoading, result, execute } = useCast("balance --flashbots --ether", Arguments, { successMessage });
+  const { isLoading, result, execute } = useCast("balance --ether", Arguments, { successMessage });
 
   return (
     <Form
@@ -27,6 +28,8 @@ export default function Command() {
         placeholder="beer.eth"
         info="The wallet address to query the balance for"
       />
+
+      <NetworkSelector />
     </Form>
   );
 }

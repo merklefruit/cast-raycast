@@ -9,6 +9,16 @@
     "Developer Tools"
   ],
   "license": "MIT",
+  "preferences": [
+    {
+      "name": "AlchemyAPIKey",
+      "description": "An Alchemy.com API token",
+      "type": "textfield",
+      "required": true,
+      "title": "Alchemy API Key",
+      "placeholder": "z241XEoGLXVfJ_avjhucsj6_nwdzWNPc"
+    }
+  ],
   "commands": [
     {
       "name": "cast-sig",

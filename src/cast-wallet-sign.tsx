@@ -1,5 +1,5 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
-import { useCast } from "./useCast";
+import { useCast } from "./lib/useCast";
 
 const Arguments = {
   privateKey: { required: true, name: "Private Key", flag: "--private-key" },

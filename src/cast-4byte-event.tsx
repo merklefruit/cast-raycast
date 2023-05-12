@@ -1,5 +1,5 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
-import { useCast } from "./useCast";
+import { useCast } from "./lib/useCast";
 
 const Arguments = {
   topic0: { required: true, name: "Topic 0" },
