@@ -8,7 +8,7 @@ const Arguments = {
 const successMessage = "Copied ENS to clipboard";
 
 export default function Command() {
-  const { isLoading, result, execute } = useCast("lookup-address --flashbots", Arguments, { successMessage });
+  const { isLoading, result, execute } = useCast("lookup-address", Arguments, { successMessage });
 
   return (
     <Form

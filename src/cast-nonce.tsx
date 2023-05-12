@@ -1,5 +1,6 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "./lib/useCast";
+import NetworkSelector from "./lib/NetworkSelector";
 
 const Arguments = {
   address: { required: true, name: "Address" },
@@ -8,7 +9,7 @@ const Arguments = {
 const successMessage = "Copied nonce to clipboard";
 
 export default function Command() {
-  const { isLoading, result, execute } = useCast("nonce --flashbots", Arguments, { successMessage });
+  const { isLoading, result, execute } = useCast("nonce", Arguments, { successMessage });
 
   return (
     <Form
@@ -27,6 +28,8 @@ export default function Command() {
         placeholder="beer.eth"
         info="The wallet address to query the nonce for"
       />
+
+      <NetworkSelector />
     </Form>
   );
 }

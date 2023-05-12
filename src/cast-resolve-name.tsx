@@ -8,7 +8,7 @@ const Arguments = {
 const successMessage = "Copied address to clipboard";
 
 export default function Command() {
-  const { isLoading, result, execute } = useCast("resolve-name --flashbots", Arguments, { successMessage });
+  const { isLoading, result, execute } = useCast("resolve-name", Arguments, { successMessage });
 
   return (
     <Form

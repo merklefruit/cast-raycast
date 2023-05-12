@@ -1,5 +1,6 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "./lib/useCast";
+import NetworkSelector from "./lib/NetworkSelector";
 
 const Arguments = {
   address: { required: true, name: "Address" },
@@ -8,7 +9,7 @@ const Arguments = {
 const successMessage = "Copied bytecode to clipboard";
 
 export default function Command() {
-  const { isLoading, result, execute } = useCast("code --flashbots", Arguments, { successMessage });
+  const { isLoading, result, execute } = useCast("code", Arguments, { successMessage });
 
   return (
     <Form
@@ -27,6 +28,8 @@ export default function Command() {
         placeholder="0x4e59b44847b379578588920ca78fbf26c0b4956c"
         info="The account to query the bytecode for"
       />
+
+      <NetworkSelector />
     </Form>
   );
 }

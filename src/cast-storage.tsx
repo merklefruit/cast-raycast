@@ -1,5 +1,6 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "./lib/useCast";
+import NetworkSelector from "./lib/NetworkSelector";
 
 const Arguments = {
   address: { required: true, name: "Address" },
@@ -9,7 +10,7 @@ const Arguments = {
 const successMessage = "Copied storage slot value to clipboard";
 
 export default function Command() {
-  const { isLoading, result, execute } = useCast("storage --flashbots", Arguments, { successMessage });
+  const { isLoading, result, execute } = useCast("storage", Arguments, { successMessage });
 
   return (
     <Form
@@ -29,6 +30,8 @@ export default function Command() {
         info="The address to query the storage slot for"
       />
       <Form.TextField id="slot" title="Slot" placeholder="0" info="The storage slot number to query the value for" />
+
+      <NetworkSelector />
     </Form>
   );
 }
