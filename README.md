@@ -29,8 +29,6 @@ To use this extension, you need to have [Raycast](https://www.raycast.com/) and 
 - All `Block` commands
 - All `Transaction` commands
 - All `Conversion` commands
-- Add support for multiple chains for commands that require use of an RPC
-- Add a detail screen for commands that output more than just a string result
 
 ## Contributing
 
