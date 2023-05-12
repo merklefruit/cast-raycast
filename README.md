@@ -14,7 +14,7 @@ To use this extension, you need to have [Raycast](https://www.raycast.com/) and 
 1. Clone this repo
 2. Open Raycast and type the "Manage Extensions" command.
 3. From there, select "Import Extension" and select the folder you just cloned.
-4. Open a terminal in the cloned folder, and run `yarn install && yarn dev` to start the extension in development mode.
+4. Open a terminal in the cloned folder, and run `npm install && npm run dev` to start the extension in development mode.
 5. You should now be able to use the extension locally!
 
 ## Features
@@ -71,3 +71,7 @@ export default function Command() {
   );
 }
 ```
+
+## License
+
+All files within this repository are licensed under the MIT License unless explicitly stated otherwise.
