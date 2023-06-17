@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
 import NetworkSelector from "../../lib/NetworkSelector";
+import { Script } from "../types";
+
+export const CastCode: Script = {
+  name: "Code",
+  description: "Get the bytecode of a contract",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Address" },

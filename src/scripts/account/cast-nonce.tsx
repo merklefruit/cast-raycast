@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
 import NetworkSelector from "../../lib/NetworkSelector";
+import { Script } from "../types";
+
+export const CastNonce: Script = {
+  name: "Nonce",
+  description: "Get the nonce for an account",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Address" },

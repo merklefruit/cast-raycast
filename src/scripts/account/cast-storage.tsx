@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
 import NetworkSelector from "../../lib/NetworkSelector";
+import { Script } from "../types";
+
+export const CastStorage: Script = {
+  name: "Storage",
+  description: "Get the raw value of a contract's storage slot",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Address" },

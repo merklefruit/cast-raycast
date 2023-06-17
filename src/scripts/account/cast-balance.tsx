@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
 import NetworkSelector from "../../lib/NetworkSelector";
+import { Script } from "../types";
+
+export const CastBalance: Script = {
+  name: "Balance",
+  description: "Get the balance of an account in wei",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Address" },
