@@ -1,10 +1,12 @@
 # Foundry `Cast` Raycast Extension
 
-Use the Cast CLI directly inside Raycast!
+Use the Foundry Cast CLI directly inside Raycast!
 
 ## Getting started
 
 To use this extension, you need to have [Raycast](https://www.raycast.com/) and [Foundry](https://book.getfoundry.sh/getting-started/installation) installed on your machine.
+
+Additionally, you will need an [Alchemy]() API key to use the commands that require RPC connections. This is used in order to provide every Cast functionality on `Mainnet`, `Optimism`, `Arbitrum` and `Polygon`.
 
 ### Local development / Usage
 
@@ -69,4 +71,5 @@ export default function Command() {
 
 ## License
 
-All files within this repository are licensed under the MIT License unless explicitly stated otherwise.
+All files within this repository are licensed under the MIT License unless explicitly stated otherwise. <br />
+100% Open Source software.
