@@ -1,16 +1,20 @@
-import { useState } from "react";
 import { Action, ActionPanel, List, useNavigation } from "@raycast/api";
 
 import allScripts from "./scripts";
-import { ScriptCategory, Script } from "./scripts/types";
+import { Script } from "./scripts/types";
 
+/**
+ * This is the main entrypoint for the extension.
+ * This will display a list of all the available commands.
+ *
+ * Upon selecting a command, the user will be taken to the command's component
+ * where they can enter the required arguments and execute it to see the result.
+ */
 export default function CastCommandsList() {
-  const [categories, setCategories] = useState<ScriptCategory[]>(allScripts);
-
   return (
-    <List isLoading={categories === undefined}>
-      {categories?.map((category, idx) => (
-        <List.Section key={idx} title={category.title}>
+    <List isLoading={allScripts === undefined}>
+      {allScripts?.map((category) => (
+        <List.Section key={category.title} title={category.title}>
           {Object.values(category.items).map((item) => (
             <ListItem item={item} key={item.name} />
           ))}
@@ -21,14 +25,15 @@ export default function CastCommandsList() {
 }
 
 function ListItem({ item }: { item: Script }) {
-  const { pop, push } = useNavigation();
+  const { push } = useNavigation();
 
   return (
     <List.Item
       title={item.name}
+      subtitle={item.description}
       actions={
         <ActionPanel>
-          <Action key={21} title="test" onAction={() => push(item.component())} />
+          <Action title="See command details" onAction={() => push(<item.component />)} />
         </ActionPanel>
       }
     />

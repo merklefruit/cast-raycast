@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const Cast4Byte: Script = {
+  name: "4byte",
+  description: "Get the function signatures from the given selector from sig.eth.samczsun.com",
+  component: Command,
+};
 
 const Arguments = {
   selector: { required: true, name: "Selector" },

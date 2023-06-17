@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const Cast4ByteDecode: Script = {
+  name: "4byte Decode Calldata",
+  description: "Decode ABI-encoded calldata using sig.eth.samczsun.com",
+  component: Command,
+};
 
 const Arguments = {
   calldata: { required: true, name: "Calldata" },

@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const Cast4ByteEvent: Script = {
+  name: "4byte Event",
+  description: "Get the event signature from a given topic0 from sig.eth.samczsun.com",
+  component: Command,
+};
 
 const Arguments = {
   topic0: { required: true, name: "Topic 0" },

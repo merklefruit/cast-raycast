@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastCalldataDecode: Script = {
+  name: "ABI Decode Calldata",
+  description: "Decode ABI-encoded input data",
+  component: Command,
+};
 
 const Arguments = {
   sig: { required: true, name: "Signature" },
