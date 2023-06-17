@@ -1,9 +1,10 @@
 import * as Abi from "./abi";
 import * as Account from "./account";
 import * as Ens from "./ens";
-import { ScriptCategory } from "./types";
 import * as Utility from "./utility";
 import * as Wallet from "./wallet";
+
+import { ScriptCategory } from "./types";
 
 const allScripts: ScriptCategory[] = [
   { title: "ABI", items: Abi },
