@@ -1,7 +1,7 @@
 import { Action, ActionPanel, List, useNavigation } from "@raycast/api";
 
-import allScripts from "./scripts";
-import { Script } from "./scripts/types";
+import allCommands from "./commands";
+import { Command } from "./commands/types";
 
 /**
  * This is the main entrypoint for the extension.
@@ -12,8 +12,8 @@ import { Script } from "./scripts/types";
  */
 export default function CastCommandsList() {
   return (
-    <List isLoading={allScripts === undefined}>
-      {allScripts?.map((category) => (
+    <List isLoading={allCommands === undefined}>
+      {allCommands?.map((category) => (
         <List.Section key={category.title} title={category.title}>
           {Object.values(category.items).map((item) => (
             <ListItem item={item} key={item.name} />
@@ -24,7 +24,7 @@ export default function CastCommandsList() {
   );
 }
 
-function ListItem({ item }: { item: Script }) {
+function ListItem({ item }: { item: Command }) {
   const { push } = useNavigation();
 
   return (
