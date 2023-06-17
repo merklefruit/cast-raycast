@@ -4,7 +4,7 @@ import { useCast } from "../../lib/useCast";
 import { Script } from "../types";
 
 export const CastIndex: Script = {
-  name: "Index of mapping entry",
+  name: "Index of Mapping Entry",
   description: "Compute the storage slot location for an entry in a mapping",
   component: Command,
 };

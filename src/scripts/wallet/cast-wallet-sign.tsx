@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastWalletSign: Script = {
+  name: "Sign message",
+  description: "Sign a message with a private key",
+  component: Command,
+};
 
 const Arguments = {
   privateKey: { required: true, name: "Private Key", flag: "--private-key" },

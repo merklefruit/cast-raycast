@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form, confirmAlert } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastWalletVanity: Script = {
+  name: "Generate Vanity Wallet",
+  description: "Generate a vanity address",
+  component: Command,
+};
 
 const Arguments = {
   startsWith: { required: false, name: "Starts With", flag: "--starts-with" },

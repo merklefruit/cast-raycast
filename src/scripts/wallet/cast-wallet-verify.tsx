@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastWalletVerify: Script = {
+  name: "Wallet Verify",
+  description: "Verify the signature of a message",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Address", flag: "--address" },

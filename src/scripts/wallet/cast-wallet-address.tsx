@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastWalletAddress: Script = {
+  name: "Wallet Address",
+  description: "Convert a private key to an address",
+  component: Command,
+};
 
 const Arguments = {
   privateKey: { required: true, name: "Private Key" },
