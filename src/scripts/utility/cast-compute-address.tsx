@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastComputeAddress: Script = {
+  name: "Compute Address",
+  description: "Compute the contract address from a given nonce and deployer address",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Deployer Address" },

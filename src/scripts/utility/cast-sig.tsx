@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastSig: Script = {
+  name: "Function Signatures",
+  description: "Get the selector for a function",
+  component: Command,
+};
 
 const Arguments = {
   signature: { required: true, name: "Function Signature" },

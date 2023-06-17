@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastConcatHex: Script = {
+  name: "Concat Hex",
+  description: "Concatenate Hex strings",
+  component: Command,
+};
 
 const Arguments = {
   data: { required: true, name: "Data", flag: "--concat-hex" },

@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastInterface: Script = {
+  name: "Interface from ABI",
+  description: "Generate a Solidity interface from a given ABI",
+  component: Command,
+};
 
 const Arguments = {
   address: { required: true, name: "Contract Address" },

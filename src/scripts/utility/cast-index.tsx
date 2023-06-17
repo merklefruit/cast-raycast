@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastIndex: Script = {
+  name: "Index of mapping entry",
+  description: "Compute the storage slot location for an entry in a mapping",
+  component: Command,
+};
 
 const Arguments = {
   keyType: { required: true, name: "Key Type" },

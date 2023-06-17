@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastSigEvent: Script = {
+  name: "Event Signatures",
+  description: "Generate event signatures from event string",
+  component: Command,
+};
 
 const Arguments = {
   signature: { required: true, name: "Event Signature" },

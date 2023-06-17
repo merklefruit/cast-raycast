@@ -1,5 +1,12 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastKeccak: Script = {
+  name: "Keccak",
+  description: "Hash arbitrary data using keccak-256",
+  component: Command,
+};
 
 const Arguments = {
   value: { required: true, name: "Value" },

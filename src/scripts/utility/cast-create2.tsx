@@ -1,6 +1,13 @@
 import { ActionPanel, Action, Form } from "@raycast/api";
 
 import { useCast } from "../../lib/useCast";
+import { Script } from "../types";
+
+export const CastCreate2: Script = {
+  name: "Create2",
+  description: "Generate a deterministic contract address using CREATE2",
+  component: Command,
+};
 
 const Arguments = {
   startsWith: { required: true, name: "Starts with", flag: "--starts-with" },
