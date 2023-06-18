@@ -23,10 +23,10 @@ Additionally, you will need an [Alchemy](https://alchemy.com/) API key to use th
 - All `ENS` commands
 - All `account` commands
 - All `ABI` commands
+- All `Block` commands
 
 ## TODO
 
-- All `Block` commands
 - All `Transaction` commands
 - All `Conversion` commands
 
